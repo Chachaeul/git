@@ -1,0 +1,98 @@
+SCM(Software Configuration Management : 소프트웨어 형상 관리)
+=============================================
+
+Git
+==================
+1. 설치
+	1) http://www.git-scm.com
+
+
+2. 사용법
+	1) bash
+	2) GUI
+		  * sourcetree
+   * eclipse, pycharm, visual studio ...
+
+
+
+3. 버전관리 용어
+	1) 알파(Alpha) 버전
+	2) 베타(Beta) 버전
+	3) Milestone
+	4) RC(Release Candidate)
+	5) GA(General Availability)
+
+
+4. 버전관리 전략(subversion 기준)
+	1) branch
+	2) tag
+	3) trunk
+
+5. 실습
+	1) Git을 설치하고 가장 먼저 해야 할 일
+		git config --global user.name "본인이름영어로넣기"
+		git config --global user.email 이메일주소넣기
+
+		git config --list		: 설정 확인
+		git config user.name	: 등록된 이름 확인
+
+	2) 프로젝트 생성 후 가장 먼저 해야 할 일
+		(1) 저장소(Local Repository) 생성
+			git init		: 프로젝트 폴더 내에서 할 것. ( FirstPorject 에서 git-bash 열고난 뒤 하기)
+			git clone <github주소> 	: 복제를 하겠다
+
+		(2) 2단계 작업(WD -> Stage)
+			git add first.txt
+			git add 파일명, 파일명, ...
+			git add *.txt
+			git add --all 또는 git add .				
+
+		(3) 3단계 작업 : Stage -> Local Repository (= commit)
+			git commit
+			git commit -m "메시지..."
+
+	3) Remote Repository
+  		 (1) 직접 서버 구축(artifactory, ...)
+  		 (2) Web으로 구현된 서버 : github, gitlab, bitbucket, CodeBase, CloudForge,...
+		 (3) 명령어
+			git remote, git remote -v
+		 	git remote add 별명 <github 주소>
+
+			git push <업로드할 서버주소> <올릴 데이터가 있는 저장소 이름(로컬측)>
+			git pull <다운받을 서버 주소> < 받을 데이터가 있는 저장소 이름(서버측)>	: merge 됨 (fetch + merge)
+		
+			git fetch <다운받을 서버 주소> < 받을 데이터가 있는 저장소 이름(서버측)> 	: merge는 안됨
+			git merge
+
+		  (4) 커밋 되돌리기 : reset, revert
+			 reset : 내가 했던 작업을 없애버린다.
+				git reset --[hard | soft | mixed]
+				------------------------------------
+				git reset --hard <checksum> 
+
+				git push -fu origin master 또는 git push origin +master
+
+		  (5) branch
+
+		  (6) 협업
+			-collaboration
+				팀장과 팀원이 한 조로 구성(팀장 1명)
+				팀장
+					settings - manage access
+				팀원
+					프로젝트를 clone으로 생성
+					브랜치 생성 후 작업
+					서버로 push
+				
+			-fork	
+				http://github.com/octocat/Spoon-Knife	// fork 버튼 누르면 됨
+
+
+
+
+
+	 	
+
+
+
+
